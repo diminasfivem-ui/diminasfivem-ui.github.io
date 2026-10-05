@@ -1773,7 +1773,7 @@ window.D1 = {
     w11: 'https://d1minas.centralcart.ai/package/windows-11-otimizado-iso',        /* Windows 11 Otimizado - ISO (link direto) — R$ 35,90 */
     combo: 'https://d1minas.centralcart.ai/package/combo-windows-10-11-otimizado-iso'   /* Combo Windows 10 + 11 - ISO (link direto) — R$ 55,90 */
   },
-  pixel: '',     /* ID do Pixel da Meta (só números) */
+  pixel: '956143980376467',     /* ID do Pixel da Meta (só números): Pixel D1MINAS */
   discord: 'https://discord.gg/d1minas'
 };
 (function () {
@@ -2660,8 +2660,7 @@ const LOW = !IOS && ((navigator.hardwareConcurrency || 8) <= 2 || (navigator.dev
 const canvas = document.getElementById('gl');
 let renderer;
 try {
-  /* celular com tela de alta densidade: já renderiza em 2x, o antisserrilhado extra só pesaria */
-  renderer = new THREE.WebGLRenderer({ canvas, antialias: !(COARSE && (window.devicePixelRatio || 1) >= 2), powerPreference: 'high-performance' });
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
 } catch (err) {
   document.getElementById('fallback').hidden = false;
   document.getElementById('hint-text').textContent = 'WebGL indisponível neste navegador';
@@ -2670,7 +2669,7 @@ try {
 /* nitidez máxima: celular renderiza até 2.5x, computador até 2x (tela comum ganha 1.5x = antisserrilhado extra);
    o loop só baixa se o aparelho realmente travar */
 const DPR = window.devicePixelRatio || 1;
-const PR_MAX = LOW ? Math.min(DPR, 1.5) : COARSE ? Math.min(DPR, 2) : Math.min(2, Math.max(DPR, 1.5));
+const PR_MAX = LOW ? Math.min(DPR, 1.5) : COARSE ? Math.min(DPR, 2.5) : Math.min(2, Math.max(DPR, 1.5));
 renderer.setPixelRatio(PR_MAX);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.NeutralToneMapping;
@@ -3888,19 +3887,18 @@ async function start() {
 
   /* qualidade adaptativa: começa na nitidez máxima e só baixa se o aparelho travar de verdade.
      Celular em modo economia fica em 30 fps de propósito: isso NÃO derruba a qualidade. */
-  const Q_MIN_FPS = COARSE ? 27 : 38;
-  let prNow = PR_MAX, qAcc = 0, qN = 0, qBad = 0, qWarm = COARSE ? 70 : 150;
+  const Q_MIN_FPS = COARSE ? 22 : 38;
+  let prNow = PR_MAX, qAcc = 0, qN = 0, qBad = 0, qWarm = 150;
   function adaptQuality(raw) {
     if (raw <= 0 || raw > 0.25 || document.hidden) return;
     if (qWarm > 0) { qWarm--; return; }
     qAcc += raw; qN++;
-    if (qN < (COARSE ? 50 : 90)) return;
+    if (qN < 90) return;
     const fps = qN / qAcc;
     qAcc = 0; qN = 0;
     qBad = fps < Q_MIN_FPS ? qBad + 1 : 0;
-    /* celular reage rápido (uma janela ruim já baixa meio ponto); computador continua conservador */
-    if (qBad >= (COARSE ? 1 : 2) && prNow > 1) {
-      prNow = Math.max(1, Math.round((prNow - (COARSE && prNow > 1.5 ? 0.5 : 0.25)) * 4) / 4);
+    if (qBad >= 2 && prNow > 1) {
+      prNow = Math.max(1, Math.round((prNow - 0.25) * 4) / 4);
       renderer.setPixelRatio(prNow);
       layoutView();
       qBad = 0;
