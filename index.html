@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#07070A">
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="modulepreload" href="three.module.min.js">
 <title>D1MINAS Optimizer</title>
 <meta name="description" content="Windows 10 e Windows 11 otimizados para jogos. Ajustes de GPU, CPU, memória, armazenamento e latência.">
 <meta property="og:type" content="website">
@@ -43,7 +43,7 @@
   --logo:url("data:image/webp;base64,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");
 }
 *{box-sizing:border-box}
-html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:84px}
+html{background:var(--bg);scroll-padding-top:84px}
 body{background:var(--bg);color:var(--fg);font:400 17px/1.62 var(--sans);font-kerning:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow-x:clip}
 ::selection{background:rgba(139,92,246,.45);color:#fff}
 a{color:inherit}
@@ -838,6 +838,55 @@ html.pv-open .buybar,html.pvz-open .buybar{display:none}
 .run .lights i{animation:lights 2.4s ease-in-out infinite}
 .run .lights i:nth-child(2){animation-delay:.3s}.run .lights i:nth-child(3){animation-delay:.6s}
 @keyframes lights{0%,100%{background:rgba(255,255,255,.18)}40%{background:var(--violet-hi);box-shadow:0 0 10px var(--violet)}}
+/* ---------- celular: sem desfoque de vidro nem granulado (pesam em cima do 3D) ---------- */
+@media (max-width:760px),(pointer:coarse){
+  .grain{display:none}
+  .glass,.btn,.nav,.spec li,.tag .chip,.duo .card,.fb-meta li,.hint,.pv-bar,.pvz-x,.pvz-cap,.buybar,.menu{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .glass{background:linear-gradient(160deg,rgba(27,26,37,.9),rgba(14,13,20,.86))}
+  .nav{background:rgba(13,12,19,calc(.35 + .57 * var(--nk)))}
+  .buybar{background:rgba(16,15,24,.96)}
+  .menu{background:linear-gradient(160deg,#1A1925,#0D0D13)}
+  .btn:not(.primary){background:linear-gradient(160deg,rgba(46,44,62,.92),rgba(24,23,33,.9))}
+  .spec li,.fb-meta li{background:linear-gradient(160deg,rgba(40,38,54,.9),rgba(22,21,31,.88))}
+  .tag .chip,.hint{background:rgba(14,13,20,.92)}
+  .duo .card{background:linear-gradient(160deg,rgba(52,49,70,.92),rgba(27,26,37,.9))}
+}
+
+/* ---------- janela de compra (abre na hora, sem rolar até os preços) ---------- */
+.bs{position:fixed;inset:0;z-index:40;display:grid;align-items:end;justify-items:center}
+.bs[hidden]{display:none}
+.bs:not(.on){pointer-events:none}
+.bs-bg{position:absolute;inset:0;background:rgba(4,4,7,.74);opacity:0;transition:opacity .25s}
+.bs-card{position:relative;width:min(520px,100%);max-height:calc(100svh - 20px);overflow-y:auto;overscroll-behavior:contain;padding:22px 16px calc(16px + env(safe-area-inset-bottom,0px));border-radius:28px 28px 0 0;border:1px solid rgba(255,255,255,.1);border-bottom:0;background:linear-gradient(170deg,#191824,#0D0D14);box-shadow:0 -30px 80px -30px #000;transform:translateY(102%);transition:transform .32s var(--ease)}
+.bs.on .bs-bg{opacity:1}
+.bs.on .bs-card{transform:none}
+@media (min-width:761px){
+  .bs{align-items:center}
+  .bs-card{padding:28px 24px 22px;border-radius:28px;border-bottom:1px solid rgba(255,255,255,.1);opacity:0;transform:translateY(14px) scale(.98);transition:transform .28s var(--ease),opacity .2s}
+  .bs.on .bs-card{opacity:1}
+}
+.bs-x{position:absolute;top:14px;right:14px;width:40px;height:40px;border:0;border-radius:50%;cursor:pointer;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.bs-x i{position:absolute;left:12px;right:12px;top:19.2px;height:1.6px;border-radius:2px;background:var(--fg)}
+.bs-x i:first-child{transform:rotate(45deg)}
+.bs-x i:last-child{transform:rotate(-45deg)}
+.bs-eye{margin:0 52px 9px 2px;font:500 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--violet-hi)}
+.bs-title{margin:0 52px 14px 2px;font:600 26px/1.05 var(--ui);letter-spacing:-.03em}
+.bs-opt{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;margin-top:10px;padding:13px 14px;border-radius:20px;color:var(--fg);text-decoration:none;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);transition:transform .2s,background .2s}
+.bs-opt:hover{background:rgba(255,255,255,.065)}
+.bs-opt:active{transform:scale(.985)}
+.bs-opt.best{border-color:rgba(167,139,250,.75);background:linear-gradient(160deg,rgba(139,92,246,.3),rgba(94,58,212,.12));box-shadow:0 18px 44px -24px rgba(139,92,246,.9)}
+.bs-n{display:flex;gap:4px}
+.bs-n b{display:grid;place-items:center;width:36px;height:44px;border-radius:12px;font:600 18px/1 var(--ui);letter-spacing:-.04em;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.bs-t{display:grid;gap:5px;min-width:0}
+.bs-t strong{font:600 15.5px/1.15 var(--ui);letter-spacing:-.01em}
+.bs-t small{font:400 12.5px/1.3 var(--sans);color:var(--fg-2)}
+.bs-p{display:grid;justify-items:end;gap:6px;font:600 16px/1 var(--ui);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bs-p em{padding:5px 7px;border-radius:999px;font:600 9.5px/1 var(--mono);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(139,92,246,.78)}
+.bs-note{margin:14px 2px 0;text-align:center;font:500 11.5px/1.55 var(--mono);letter-spacing:.02em;color:var(--fg-2)}
+.bs-quiz{display:block;margin-top:6px;padding:10px;text-align:center;font:500 13.5px/1.2 var(--sans);color:var(--violet-hi);text-decoration:underline;text-underline-offset:3px}
+html.bs-open{overflow:hidden}
+html.bs-open .buybar{display:none}
+.from + .from{margin-top:8px}
 </style>
 
 </head>
@@ -851,7 +900,7 @@ html.pv-open .buybar,html.pvz-open .buybar{display:none}
   <div class="links">
     <a class="pv-link" href="#preview-windows" data-pv-open><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.4 8S3.8 3.6 8 3.6 14.6 8 14.6 8 12.2 12.4 8 12.4 1.4 8 1.4 8z"/><circle cx="8" cy="8" r="2.1"/></svg>Preview Windows</a>
     <a href="#feedback" data-nav="feedback">Feedback</a>
-    <a href="#quiz" data-nav="quiz">Quiz</a>
+    <a href="#quiz" data-nav="quiz">Teste seu PC</a>
     <a href="#precos" data-nav="precos">Preços</a>
     <a href="#faq" data-nav="faq">FAQ</a>
   </div>
@@ -867,7 +916,7 @@ html.pv-open .buybar,html.pvz-open .buybar{display:none}
   <a href="#interface" data-nav="interface">Interface</a>
   <a class="pv-link" href="#preview-windows" data-pv-open><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.4 8S3.8 3.6 8 3.6 14.6 8 14.6 8 12.2 12.4 8 12.4 1.4 8 1.4 8z"/><circle cx="8" cy="8" r="2.1"/></svg>Preview Windows</a>
   <a href="#feedback" data-nav="feedback">Feedback</a>
-  <a href="#quiz" data-nav="quiz">Quiz</a>
+  <a href="#quiz" data-nav="quiz">Teste seu PC</a>
   <a href="#precos" data-nav="precos">Preços</a>
   <a href="#faq" data-nav="faq">FAQ</a>
   <a class="btn primary block" href="#precos">Comprar</a>
@@ -885,6 +934,7 @@ html.pv-open .buybar,html.pvz-open .buybar{display:none}
         <a class="btn ghost" href="#camadas">Conhecer o sistema</a>
       </div>
       <p class="from"><i></i><span>A partir de <b>R$ 35,90</b> · combo 10 + 11 por <b>R$ 55,90</b></span></p>
+      <p class="from"><i></i><span><b>+7 mil</b> Windows vendidos · roda em <b>PC fraco e PC forte</b></span></p>
       <p class="fallback" id="fallback" hidden>Seu navegador não liberou WebGL, então as peças 3D não aparecem aqui.</p>
     </div>
   </section>
@@ -1520,19 +1570,19 @@ html.pv-open .buybar,html.pvz-open .buybar{display:none}
   <section id="quiz" class="s flow">
     <div class="wrap">
       <div class="center-head">
-        <i class="sec-mark" aria-hidden="true"></i><p class="eyebrow">Quiz</p>
+        <i class="sec-mark" aria-hidden="true"></i><p class="eyebrow">Teste seu PC</p>
         <h2 class="h2">Descubra o que<br><span class="dim">seu PC precisa.</span></h2>
         <p class="body">Quatro testes rápidos: escolha a versão certa, ache o gargalo, monte o setup ideal e veja o quanto você manja.</p>
       </div>
       <div class="qz glass" id="qz">
-        <div class="qz-tabs" role="tablist" aria-label="Escolha o quiz">
+        <div class="qz-tabs" role="tablist" aria-label="Escolha o teste">
           <button type="button" role="tab" aria-selected="true" data-q="windows"><b>01</b>Qual Windows?</button>
           <button type="button" role="tab" aria-selected="false" data-q="diag"><b>02</b>Diagnóstico de FPS</button>
           <button type="button" role="tab" aria-selected="false" data-q="setup"><b>03</b>Monte seu setup</button>
           <button type="button" role="tab" aria-selected="false" data-q="trivia"><b>04</b>Teste rápido</button>
         </div>
         <div class="qz-stage" id="qz-stage" aria-live="polite">
-          <p class="qz-q">Carregando o quiz…</p>
+          <p class="qz-q">Carregando o teste…</p>
         </div>
       </div>
     </div>
@@ -1600,7 +1650,7 @@ html.pv-open .buybar,html.pvz-open .buybar{display:none}
         <details class="qa glass" data-glow data-co><summary>Como eu recebo o Windows?<i aria-hidden="true"></i></summary><p>Na hora. Assim que o pagamento é confirmado (no Pix leva segundos), a entrega é automática: você recebe o link de download da ISO, o passo a passo de instalação e o convite do Discord para suporte.</p></details>
         <details class="qa glass" data-glow data-co><summary>Tem garantia?<i aria-hidden="true"></i></summary><p>Tem. São 7 dias de garantia: se não gostar, é só pedir o reembolso no suporte.</p></details>
         <details class="qa glass" data-glow data-dc><summary>Como eu recebo o Windows?<i aria-hidden="true"></i></summary><p>O acesso é imediato. Com o pagamento confirmado, você ganha acesso ao canal da sua versão no Discord, com o download da ISO.</p></details>
-        <details class="qa glass" data-glow><summary>Qual versão devo escolher?<i aria-hidden="true"></i></summary><p>A mesma que você já usa ou pretende usar. Se ficar na dúvida, faça o quiz <a href="#quiz">Qual Windows?</a> aqui na página ou leve o combo com as duas versões por R$ 55,90.</p></details>
+        <details class="qa glass" data-glow><summary>Qual versão devo escolher?<i aria-hidden="true"></i></summary><p>A mesma que você já usa ou pretende usar. Se ficar na dúvida, faça o teste <a href="#quiz">Qual Windows?</a> aqui na página ou leve o combo com as duas versões por R$ 55,90.</p></details>
         <details class="qa glass" data-glow><summary>Qual a diferença entre o Windows 10 e o 11?<i aria-hidden="true"></i></summary><p>O 11 aproveita melhor processadores mais novos, principalmente os Intel de 12ª geração em diante, que têm núcleos de desempenho e de eficiência. O 10 é mais leve e costuma render mais em PCs mais antigos.</p></details>
         <details class="qa glass" data-glow><summary>O que vem no combo?<i aria-hidden="true"></i></summary><p>As duas versões otimizadas, Windows 10 e Windows 11, por R$ 55,90. Separadas sairiam R$ 71,80, então você economiza R$ 15,90.</p></details>
         <p class="faq-cat">Instalação e uso</p>
@@ -1616,7 +1666,7 @@ html.pv-open .buybar,html.pvz-open .buybar{display:none}
         <details class="qa glass" data-glow><summary>Roda Valorant?<i aria-hidden="true"></i></summary><p>Roda. No Windows 11 o isolamento de núcleo vem desligado para dar mais FPS. Se o Valorant mostrar o erro VAN: Restriction, abra a pasta C:\Program Files\D1MINAS, clique com o botão direito em Ligar_Isolamento_de_Nucleo.cmd, escolha Executar como administrador e reinicie o PC.</p></details>
         <details class="qa glass" data-glow><summary>Quanto de FPS eu vou ganhar?<i aria-hidden="true"></i></summary><p>Pode aumentar sim, e dependendo do PC os ganhos são bem grandes. Nos feedbacks do Windows no Discord tem cliente que saiu de 50 para 107 FPS e de 100 para 180 FPS. O quanto você ganha depende do processador, da placa de vídeo, dos drivers e do jogo.</p></details>
         <details class="qa glass" data-glow><summary>Funciona em notebook ou com vídeo integrado?<i aria-hidden="true"></i></summary><p>Funciona. Nos feedbacks tem cliente de notebook e de vídeo integrado relatando mais FPS e menos travadas. O ganho depende do hardware de cada um.</p></details>
-        <details class="qa glass" data-glow><summary>Funciona no meu PC?<i aria-hidden="true"></i></summary><p>As configurações foram pensadas para diferentes hardwares, do PC de entrada ao topo de linha, inclusive notebook e vídeo integrado. Se estiver na dúvida entre o 10 e o 11, faça o quiz <a href="#quiz">Qual Windows?</a> ou leve o combo com os dois.</p></details>
+        <details class="qa glass" data-glow><summary>Funciona no meu PC?<i aria-hidden="true"></i></summary><p>As configurações foram pensadas para diferentes hardwares, do PC de entrada ao topo de linha, inclusive notebook e vídeo integrado. Se estiver na dúvida entre o 10 e o 11, faça o teste <a href="#quiz">Qual Windows?</a> ou leve o combo com os dois.</p></details>
         <p class="faq-cat">Suporte</p>
         <details class="qa glass" data-glow><summary>A D1MINAS também otimiza o PC?<i aria-hidden="true"></i></summary><p>Sim. Além do Windows, tem a Otimização Avançada e a Premium, com check-up manual do seu PC, e o plano VIP, que junta todos os Windows, a Otimização Premium completa e outros bônus. Esses serviços são oferecidos no suporte, depois da compra.</p></details>
         <details class="qa glass" data-glow data-co><summary>E se eu precisar de ajuda?<i aria-hidden="true"></i></summary><p>O suporte é pelo Discord oficial da D1MINAS. O convite é liberado junto com o download.</p></details>
@@ -1684,6 +1734,31 @@ html.pv-open .buybar,html.pvz-open .buybar{display:none}
   <span class="copy-mark"><i class="fmark" aria-hidden="true"></i>© 2026 D1MINAS<em>·</em>Todos os direitos reservados</span>
 </footer>
 
+<div class="bs" id="buy-sheet" hidden>
+  <div class="bs-bg" data-bs-close></div>
+  <div class="bs-card" role="dialog" aria-modal="true" aria-labelledby="bs-title">
+    <button type="button" class="bs-x" data-bs-close aria-label="Fechar"><i></i><i></i></button>
+    <p class="bs-eye">+7 mil Windows vendidos</p>
+    <h2 class="bs-title" id="bs-title">Escolha seu Windows</h2>
+    <a class="bs-opt best" href="https://discord.gg/d1minas" target="_blank" rel="noopener" data-buy="combo">
+      <span class="bs-n" aria-hidden="true"><b>10</b><b>11</b></span>
+      <span class="bs-t"><strong>Combo 10 + 11</strong><small>Os dois Windows · economize R$ 15,90</small></span>
+      <span class="bs-p"><em>Melhor custo</em>R$ 55,90</span>
+    </a>
+    <a class="bs-opt" href="https://discord.gg/d1minas" target="_blank" rel="noopener" data-buy="w10">
+      <span class="bs-n" aria-hidden="true"><b>10</b></span>
+      <span class="bs-t"><strong>Windows 10</strong><small>Para quem continua no 10: leve e estável</small></span>
+      <span class="bs-p">R$ 35,90</span>
+    </a>
+    <a class="bs-opt" href="https://discord.gg/d1minas" target="_blank" rel="noopener" data-buy="w11">
+      <span class="bs-n" aria-hidden="true"><b>11</b></span>
+      <span class="bs-t"><strong>Windows 11</strong><small>Para quem está no 11: menos ruído de fundo</small></span>
+      <span class="bs-p">R$ 35,90</span>
+    </a>
+    <p class="bs-note">Pix ou cartão · link na hora por e-mail<br>PC fraco ou forte · DDR3, DDR4 e DDR5</p>
+    <a class="bs-quiz" href="#quiz" data-bs-close>Não sabe qual escolher? Faça o teste rápido</a>
+  </div>
+</div>
 <div class="buybar" id="buybar" aria-hidden="true"><div class="bb-txt"><b>Windows otimizado</b><span>a partir de R$ 35,90</span></div><a class="btn primary btn-sm" href="#precos" tabindex="-1">Comprar agora <span class="arr" aria-hidden="true">→</span></a></div>
 
 <div class="hint" id="hint" aria-hidden="true"><i></i><span id="hint-text">Carregando peças 3D…</span></div>
@@ -1747,9 +1822,9 @@ window.D1 = {
   /* barra fixa de compra no celular: aparece depois da abertura e some quando os preços estão na tela */
   var bar = document.getElementById('buybar'), hero = document.getElementById('topo');
   if (bar && hero && pr && 'IntersectionObserver' in window) {
-    var heroIn = true, prIn = false, link = bar.querySelector('a');
+    var heroIn = true, prIn = false, moved = window.scrollY > 24, link = bar.querySelector('a');
     var upd = function () {
-      var on = !heroIn && !prIn;
+      var on = (moved || !heroIn) && !prIn;
       bar.classList.toggle('on', on);
       bar.setAttribute('aria-hidden', on ? 'false' : 'true');
       if (on) link.removeAttribute('tabindex'); else link.setAttribute('tabindex', '-1');
@@ -1759,7 +1834,55 @@ window.D1 = {
       upd();
     }, { threshold: 0.02 }).observe(hero);
     new IntersectionObserver(function (en) { prIn = en[0].isIntersecting; upd(); }, { threshold: 0.02 }).observe(pr);
+    window.addEventListener('scroll', function () { var m = window.scrollY > 24; if (m !== moved) { moved = m; upd(); } }, { passive: true });
+    upd();
   }
+
+  /* janela de compra: todo "Comprar agora" abre as 3 opções na hora, sem rolar a página inteira até os preços */
+  var sheet = document.getElementById('buy-sheet'), root = document.documentElement, sheetT = 0, sheetFrom = null;
+  var sheetOpen = function () { return sheet && !sheet.hidden; };
+  var openSheet = function () {
+    if (!sheet || sheetOpen()) return;
+    clearTimeout(sheetT);
+    sheetFrom = document.activeElement;
+    sheet.hidden = false;
+    root.classList.add('bs-open');
+    window.__d1sheet = true;                 /* pausa o 3D enquanto a janela está aberta */
+    void sheet.offsetWidth;
+    sheet.classList.add('on');
+    if (!seen) { seen = true; D.track('ViewContent', { content_name: 'Windows otimizado', content_type: 'product', value: 35.9, currency: 'BRL' }); }
+    var x = sheet.querySelector('.bs-x'); if (x) x.focus({ preventScroll: true });
+  };
+  var closeSheet = function (kb) {
+    if (!sheetOpen()) return;
+    sheet.classList.remove('on');
+    root.classList.remove('bs-open');
+    window.__d1sheet = false;
+    sheetT = setTimeout(function () { sheet.hidden = true; }, 300);
+    if (kb && sheetFrom && sheetFrom.focus) sheetFrom.focus({ preventScroll: true });
+  };
+  D.openBuy = openSheet;
+  var jump = function (id) {
+    var t = document.getElementById(id);
+    if (!t) return false;
+    var top = id === 'topo' ? 0 : Math.max(0, t.getBoundingClientRect().top + window.scrollY - (t.classList.contains('tall') ? 0 : 84));
+    var far = Math.abs(top - window.scrollY) > window.innerHeight * 1.6;
+    window.scrollTo({ top: top, behavior: far ? 'instant' : 'smooth' });
+    return true;
+  };
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t.closest) return;
+    var a = t.closest('a[href^="#"]');
+    if (sheet && a && a.getAttribute('href') === '#precos' && !a.hasAttribute('data-nav')) { e.preventDefault(); openSheet(); return; }
+    var closer = t.closest('[data-bs-close]');
+    if (closer) closeSheet(e.detail === 0);
+    if (sheetOpen() && t.closest('[data-buy]')) { sheetT = setTimeout(function () { closeSheet(); }, 600); }
+    if (!a || a.hasAttribute('data-pv-open')) return;
+    var id = a.getAttribute('href').slice(1);
+    if (id && jump(id)) e.preventDefault();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sheetOpen()) closeSheet(true); });
 })();
 </script>
 <script>
@@ -2505,7 +2628,7 @@ window.D1 = {
 
 
 <script type="module">
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
+import * as THREE from './three.module.min.js';
 
 /* =========================================================
    CORE — utilitários, renderer, ambiente, texturas, materiais
@@ -2537,7 +2660,8 @@ const LOW = !IOS && ((navigator.hardwareConcurrency || 8) <= 2 || (navigator.dev
 const canvas = document.getElementById('gl');
 let renderer;
 try {
-  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+  /* celular com tela de alta densidade: já renderiza em 2x, o antisserrilhado extra só pesaria */
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: !(COARSE && (window.devicePixelRatio || 1) >= 2), powerPreference: 'high-performance' });
 } catch (err) {
   document.getElementById('fallback').hidden = false;
   document.getElementById('hint-text').textContent = 'WebGL indisponível neste navegador';
@@ -2546,7 +2670,7 @@ try {
 /* nitidez máxima: celular renderiza até 2.5x, computador até 2x (tela comum ganha 1.5x = antisserrilhado extra);
    o loop só baixa se o aparelho realmente travar */
 const DPR = window.devicePixelRatio || 1;
-const PR_MAX = LOW ? Math.min(DPR, 1.5) : COARSE ? Math.min(DPR, 2.5) : Math.min(2, Math.max(DPR, 1.5));
+const PR_MAX = LOW ? Math.min(DPR, 1.5) : COARSE ? Math.min(DPR, 2) : Math.min(2, Math.max(DPR, 1.5));
 renderer.setPixelRatio(PR_MAX);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.NeutralToneMapping;
@@ -3759,23 +3883,24 @@ async function start() {
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
 
   const _ap = new THREE.Vector3(), _aq = new THREE.Quaternion(), _qd = new THREE.Quaternion();
-  let last = performance.now(), T = 0, fanSpeed = REDUCED ? 0 : 1.2, shown = false;
+  let last = performance.now(), T = 0, fanSpeed = REDUCED ? 0 : 1.2, shown = false, frameNo = 0;
   const baseViolet = MAT.violet.emissiveIntensity;
 
   /* qualidade adaptativa: começa na nitidez máxima e só baixa se o aparelho travar de verdade.
      Celular em modo economia fica em 30 fps de propósito: isso NÃO derruba a qualidade. */
-  const Q_MIN_FPS = COARSE ? 22 : 38;
-  let prNow = PR_MAX, qAcc = 0, qN = 0, qBad = 0, qWarm = 150;
+  const Q_MIN_FPS = COARSE ? 27 : 38;
+  let prNow = PR_MAX, qAcc = 0, qN = 0, qBad = 0, qWarm = COARSE ? 70 : 150;
   function adaptQuality(raw) {
     if (raw <= 0 || raw > 0.25 || document.hidden) return;
     if (qWarm > 0) { qWarm--; return; }
     qAcc += raw; qN++;
-    if (qN < 90) return;
+    if (qN < (COARSE ? 50 : 90)) return;
     const fps = qN / qAcc;
     qAcc = 0; qN = 0;
     qBad = fps < Q_MIN_FPS ? qBad + 1 : 0;
-    if (qBad >= 2 && prNow > 1) {
-      prNow = Math.max(1, Math.round((prNow - 0.25) * 4) / 4);
+    /* celular reage rápido (uma janela ruim já baixa meio ponto); computador continua conservador */
+    if (qBad >= (COARSE ? 1 : 2) && prNow > 1) {
+      prNow = Math.max(1, Math.round((prNow - (COARSE && prNow > 1.5 ? 0.5 : 0.25)) * 4) / 4);
       renderer.setPixelRatio(prNow);
       layoutView();
       qBad = 0;
@@ -3784,7 +3909,7 @@ async function start() {
 
   function frame(now) {
     requestAnimationFrame(frame);
-    if (window.__d1pause) { last = now; return; }
+    if (window.__d1pause || window.__d1sheet) { last = now; return; }
     adaptQuality((now - last) / 1000);
     const dt = Math.min(0.05, (now - last) / 1000);
     last = now;
@@ -3909,8 +4034,14 @@ async function start() {
 
     if (!hintGone) hint.classList.toggle('gone', st.t > 6.1);
 
-    renderer.render(scene, camera);
-    updateTags();
+    /* celular: nas seções de texto o conjunto fica longe, só de fundo; desenha quadro sim, quadro não
+       e deixa o aparelho livre para rolar a página */
+    frameNo++;
+    window.__d1far = far;
+    if (!(COARSE && shown && far > 0.985 && (frameNo & 1))) {
+      renderer.render(scene, camera);
+      updateTags();
+    }
     if (!shown) { shown = true; canvas.classList.add('on'); }
   }
   hintText.textContent = COARSE ? 'Deslize sobre a peça para girar' : 'Arraste a peça para girar';
